@@ -3,9 +3,9 @@
 
     <!-- Sidebar - Brand -->
     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-        <div class="sidebar-brand-icon rotate-n-15">
+        {{-- <div class="sidebar-brand-icon rotate-n-15">
             <i class="fas fa-laugh-wink"></i>
-        </div>
+        </div> --}}
         <div class="sidebar-brand-text mx-3">Seminário Marabá</div>
     </a>
 
@@ -14,7 +14,7 @@
 
     <!-- Nav Item - Dashboard -->
     <li class="nav-item active">
-        <a class="nav-link" href="index.html">
+        <a class="nav-link" href="/">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Dashboard</span></a>
     </li>
@@ -24,7 +24,7 @@
 
     <!-- Heading -->
     <div class="sidebar-heading">
-        Interface
+        Administração
     </div>
 
     <!-- Nav Item - Pages Collapse Menu -->
@@ -36,8 +36,8 @@
         </a>
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item" href="buttons.html">Cadastrar</a>
-                <a class="collapse-item" href="cards.html">Fazer checkin</a>
+                <a class="collapse-item" href="{{ route('web.cadastro.index') }}">Cadastrar</a>
+                <a class="collapse-item" href="{{ route('web.cadastro.checkin') }}">Listagem e edição</a>
             </div>
         </div>
     </li>
