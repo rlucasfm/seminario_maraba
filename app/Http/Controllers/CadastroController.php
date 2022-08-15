@@ -29,7 +29,7 @@ class CadastroController extends Controller
     public function checkin() {
         $inscricoes = Inscricao::paginate(5);
 
-        return view('Pages.Cadastro.checkin', [
+        return view('Pages.Cadastro.list', [
             'inscricoes' => $inscricoes
         ]);
     }
@@ -50,7 +50,8 @@ class CadastroController extends Controller
                     'checkin' => isset($dados['checkin']) ? $dados['checkin'] : ''
                 ]);
 
-                return redirect()->route('web.cadastro.checkin.edit', ['id'=>$dados['id']])->with('success', 'Inscrição atualizada com sucesso');
+                // return redirect()->route('web.cadastro.checkin.edit', ['id'=>$dados['id']])->with('success', 'Inscrição atualizada com sucesso');
+                return back()->with('success', 'Inscrição atualizada com sucesso');
             } else {
                 Inscricao::create([
                     'nome' => $dados['nome'],
@@ -83,10 +84,19 @@ class CadastroController extends Controller
 
     public function gerarCracha($id) {
         $inscricao = Inscricao::find($id);
-        $inscricao['qrcode'] = base64_encode(QrCode::format('svg')->size(200)->errorCorrection('H')->generate('http://127.0.0.1:8000/cadastro/gerar/' . $inscricao->id));
+        $inscricao['qrcode'] = base64_encode(QrCode::format('svg')->size(200)->errorCorrection('H')->generate('http://127.0.0.1:8000/cadastro/checkin/' . $inscricao->id));
 
         return PDF::loadView('layouts.cracha_pdf', compact('inscricao'))->setPaper('a7', 'portrait')
         // Se quiser que fique no formato a4 retrato: ->setPaper('a4', 'landscape')
         ->download('cracha-' . str_replace(' ', '', $inscricao->nome) . '-' . $inscricao->id . '-.pdf');
+    }
+
+    public function editCheckin($id) {
+        $inscricao = Inscricao::find($id);
+
+        return view('Pages.Cadastro.checkin', [
+            'inscricao' => $inscricao,
+            'checkin_enum' => $this->checkin_enum
+        ]);
     }
 }
