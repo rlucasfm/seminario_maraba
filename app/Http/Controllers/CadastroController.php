@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Inscricao;
 use Illuminate\Http\Request;
 use PDF;
+use QrCode;
 class CadastroController extends Controller
 {
     protected $checkin_enum = [
@@ -82,6 +83,7 @@ class CadastroController extends Controller
 
     public function gerarCracha($id) {
         $inscricao = Inscricao::find($id);
+        $inscricao['qrcode'] = base64_encode(QrCode::format('svg')->size(200)->errorCorrection('H')->generate('http://127.0.0.1:8000/cadastro/gerar/' . $inscricao->id));
 
         return PDF::loadView('layouts.cracha_pdf', compact('inscricao'))->setPaper('a7', 'portrait')
         // Se quiser que fique no formato a4 retrato: ->setPaper('a4', 'landscape')

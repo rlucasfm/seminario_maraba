@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CadastroController;
+use App\Http\Controllers\ImportarController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,4 +26,9 @@ Route::prefix('/cadastro')->group(function() {
     Route::get('/gerar/{id}', [CadastroController::class, 'gerarCracha'])->name('web.cadastro.cracha');
 
     Route::post('/', [CadastroController::class, 'form_cadastrar'])->name('web.cadastro.form_cadastrar');
+});
+
+Route::prefix('/importar')->group(function() {
+    Route::get('/', [ImportarController::class, 'index'])->name('web.importar.index');
+    Route::post('/load', [ImportarController::class, 'importar_planilha'])->name('web.importar.load');
 });
