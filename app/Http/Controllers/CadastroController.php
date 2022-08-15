@@ -4,14 +4,24 @@ namespace App\Http\Controllers;
 
 use App\Models\Inscricao;
 use Illuminate\Http\Request;
-
+use PDF;
 class CadastroController extends Controller
 {
+    protected $checkin_enum = [
+        'Entrada - Sábado',
+        'Café - Sábado',
+        'Almoço - Sábado',
+        'Lanche - Sábado',
+        'Entrada - Domingo',
+        'Café - Domingo',
+    ];
+
     public function index() {
         $inscricoes = Inscricao::all();
 
         return view('Pages.Cadastro.main', [
-            'inscricoes' => $inscricoes
+            'inscricoes' => $inscricoes,
+            'checkin_enum' => $this->checkin_enum
         ]);
     }
 
@@ -36,7 +46,7 @@ class CadastroController extends Controller
                     'igreja' => $dados['igreja'],
                     'nome_pastor' => $dados['pastor'],
                     'pago' => isset($dados['pago']) ? 1 : 0,
-                    'checkin' => isset($dados['checkin']) ? 1 : 0,
+                    'checkin' => isset($dados['checkin']) ? $dados['checkin'] : ''
                 ]);
 
                 return redirect()->route('web.cadastro.checkin.edit', ['id'=>$dados['id']])->with('success', 'Inscrição atualizada com sucesso');
@@ -49,7 +59,7 @@ class CadastroController extends Controller
                     'igreja' => $dados['igreja'],
                     'nome_pastor' => $dados['pastor'],
                     'pago' => isset($dados['pago']) ? 1 : 0,
-                    'checkin' => isset($dados['checkin']) ? 1 : 0,
+                    'checkin' => isset($dados['checkin']) ? $dados['checkin'] : ''
                 ]);
 
                 return redirect()->route('web.cadastro.index')->with('success', 'Inscrição criada com sucesso');
@@ -65,7 +75,16 @@ class CadastroController extends Controller
         $inscricao = Inscricao::find($id);
 
         return view('Pages.Cadastro.edit', [
-            'inscricao' => $inscricao
+            'inscricao' => $inscricao,
+            'checkin_enum' => $this->checkin_enum
         ]);
+    }
+
+    public function gerarCracha($id) {
+        $inscricao = Inscricao::find($id);
+
+        return PDF::loadView('layouts.cracha_pdf', compact('inscricao'))->setPaper('a7', 'portrait')
+        // Se quiser que fique no formato a4 retrato: ->setPaper('a4', 'landscape')
+        ->download('cracha-' . str_replace(' ', '', $inscricao->nome) . '-' . $inscricao->id . '-.pdf');
     }
 }

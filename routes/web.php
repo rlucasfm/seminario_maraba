@@ -22,6 +22,7 @@ Route::prefix('/cadastro')->group(function() {
     Route::get('/', [CadastroController::class, 'index'])->name('web.cadastro.index');
     Route::get('/checkin', [CadastroController::class, 'checkin'])->name('web.cadastro.checkin');
     Route::get('/checkin/{id}', [CadastroController::class, 'editInscricao'])->name('web.cadastro.checkin.edit');
+    Route::get('/gerar/{id}', [CadastroController::class, 'gerarCracha'])->name('web.cadastro.cracha');
 
     Route::post('/', [CadastroController::class, 'form_cadastrar'])->name('web.cadastro.form_cadastrar');
 });

@@ -22,7 +22,7 @@ return new class extends Migration
             $table->string('igreja');
             $table->string('nome_pastor');
             $table->boolean('pago');
-            $table->boolean('checkin');
+            $table->string('checkin');
             $table->timestamps();
         });
     }
@@ -34,6 +34,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('inscricao');
+        Schema::dropIfExists('inscricoes');
     }
 };

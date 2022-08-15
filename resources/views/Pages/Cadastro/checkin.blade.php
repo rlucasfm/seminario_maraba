@@ -2,7 +2,7 @@
 
 @section("main_content")
 <div class="card">
-    <div class="card-body">
+    <div class="card-body table-responsive">
         <h5 class="card-title">Inscrições cadastradas</h5>
         <div class="hr mb-4"></div>
         <table class="table table-hover">

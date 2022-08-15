@@ -12,7 +12,7 @@
 @endif
 
 @if (session('error'))
-<div class="alert alert-error alert-dismissible fade show" role="alert">
+<div class="alert alert-warning alert-dismissible fade show" role="alert">
     {{ session('error') }}
     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
       <span aria-hidden="true">&times;</span>
@@ -47,29 +47,30 @@
                             <option>F</option>
                         </select>
                     </div>
-                    <div class="form-group col-md-3">
+                    <div class="form-group col-md-2">
                         <label for="igreja">Igreja</label>
                         <input type="text" class="form-control" id="igreja" name="igreja" placeholder="Folha 28">
                     </div>
-                    <div class="form-group col-md-4">
+                    <div class="form-group col-md-3">
                         <label for="pastor">Nome do Pastor</label>
                         <input type="text" class="form-control" id="pastor" name="pastor" placeholder="Nome do pastor">
                     </div>
+                    <div class="form-group col-md-2">
+                        <label for="checkin">Checkin</label>
+                        <select id="checkin" name="checkin" class="form-control">
+                            <option value=" "></option>
+                            @foreach ($checkin_enum as $ce)
+                            <option value="{{ $ce }}">{{ $ce }}</option>
+                            @endforeach
+                        </select>
+                    </div>
                 </div>
                 <div class="form-row">
-                    <div class="form-group mr-4">
+                    <div class="form-group">
                         <div class="form-check">
                             <input class="form-check-input" type="checkbox" id="pago" name="pago">
                             <label class="form-check-label" for="pago">
                                 Pago
-                            </label>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="checkin" name="checkin">
-                            <label class="form-check-label" for="checkin">
-                                Checkin
                             </label>
                         </div>
                     </div>

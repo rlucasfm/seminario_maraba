@@ -24,7 +24,7 @@
 
     <!-- Heading -->
     <div class="sidebar-heading">
-        Administração
+        Admin
     </div>
 
     <!-- Nav Item - Pages Collapse Menu -->
