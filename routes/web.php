@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdministrativoController;
 use App\Http\Controllers\CadastroController;
 use App\Http\Controllers\ImportarController;
 use Illuminate\Support\Facades\Route;
@@ -32,4 +33,9 @@ Route::prefix('/cadastro')->group(function() {
 Route::prefix('/importar')->group(function() {
     Route::get('/', [ImportarController::class, 'index'])->name('web.importar.index');
     Route::post('/load', [ImportarController::class, 'importar_planilha'])->name('web.importar.load');
+});
+
+Route::prefix('/admin')->group(function() {
+    Route::get('/igrejas', [AdministrativoController::class, 'gerarPorIgrejas'])->name('web.admin.igrejas');
+    Route::get('/gerar-multiple', [AdministrativoController::class, 'gerarCrachasMultiple'])->name('web.admin.cracha_multiple');
 });

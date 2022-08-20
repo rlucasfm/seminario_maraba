@@ -5,7 +5,7 @@
         <hr>
         <p><strong>{{ $inscricao->nome }}</strong></p>
         <p><strong>Igreja:</strong> {{ $inscricao->igreja }}</p>
-        <img src="data:image/png;base64, {!! $inscricao->qrcode !!}" height="100px">
+        <img src="data:image/png;base64, {!! $inscricao->qrcode !!}" height="80px">
     </div>
 </div>
 
