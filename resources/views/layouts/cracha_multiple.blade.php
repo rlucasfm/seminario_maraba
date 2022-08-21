@@ -38,5 +38,8 @@
     </div>
     @endforeach
     </div>
+    <script>
+        window.print();
+    </script>
 </body>
 </html>

@@ -10,8 +10,9 @@
                 <div class="form-group col-md-6">
                     <label for="igreja">Igreja</label>
                     <select id="igreja" name="igreja" class="form-control">
-                        <option>Dom Eliseu</option>
-                        <option>Centro</option>
+                        @foreach ($igrejas as $ig)
+                            <option>{{ $ig->igreja }}</option>
+                        @endforeach
                     </select>
                 </div>
             </div>

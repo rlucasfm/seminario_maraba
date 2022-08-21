@@ -37,5 +37,5 @@ Route::prefix('/importar')->group(function() {
 
 Route::prefix('/admin')->group(function() {
     Route::get('/igrejas', [AdministrativoController::class, 'gerarPorIgrejas'])->name('web.admin.igrejas');
-    Route::get('/gerar-multiple', [AdministrativoController::class, 'gerarCrachasMultiple'])->name('web.admin.cracha_multiple');
+    Route::post('/gerar-multiple', [AdministrativoController::class, 'gerarCrachasMultiple'])->name('web.admin.cracha_multiple');
 });

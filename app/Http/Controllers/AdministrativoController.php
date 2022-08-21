@@ -8,15 +8,17 @@ use App\Models\Inscricao;
 class AdministrativoController extends Controller
 {
     public function gerarPorIgrejas() {
+        $igrejas = Inscricao::select('igreja')->distinct()->get();
+
         return view('Pages.Administrativo.igrejas', [
-            'inscricoes' => []
+            'igrejas' => $igrejas,
         ]);
     }
 
 
-    public function gerarCrachasMultiple() {
-        $id_arr = [1,2,3,4,5,6,7,8,9,10,11,12];
-        $inscricoes = Inscricao::whereIn('id', $id_arr)->get();
+    public function gerarCrachasMultiple(Request $request) {
+        $igreja = $request['igreja'];
+        $inscricoes = Inscricao::where('igreja', $igreja)->get();
 
         return view('layouts.cracha_multiple', [
             'inscricoes' => $inscricoes
