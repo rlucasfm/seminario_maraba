@@ -83,7 +83,7 @@ class CadastroController extends Controller
     }
 
     public function gerarCracha($id) {
-        $base_url = env('APP_URL', 'http://localhost');
+        $base_url = env('APP_URL', 'http://icmsulpara.com.br');
         $inscricao = Inscricao::find($id);
         $inscricao['qrcode'] = base64_encode(QrCode::format('svg')->size(200)->errorCorrection('H')->generate($base_url . '/cadastro/checkin/' . $inscricao->id));
 

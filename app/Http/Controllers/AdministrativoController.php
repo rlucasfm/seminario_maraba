@@ -22,7 +22,7 @@ class AdministrativoController extends Controller
 
         return view('layouts.cracha_multiple', [
             'inscricoes' => $inscricoes,
-            'url_base' => env('APP_URL', 'http://localhost')
+            'url_base' => env('APP_URL', 'http://icmsulpara.com.br')
         ]);
     }
 }
