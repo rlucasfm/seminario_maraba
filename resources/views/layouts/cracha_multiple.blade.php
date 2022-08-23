@@ -33,7 +33,7 @@
             <hr>
             <p><strong>{{ $inscricao->nome }}</strong></p>
             <p class="mb-4"><strong>Igreja:</strong> {{ $inscricao->igreja }}</p>
-            {!! QrCode::format('svg')->size(100)->generate('http://127.0.0.1:8000/cadastro/checkin/' . $inscricao->id) !!}
+            {!! QrCode::format('svg')->size(100)->generate($url_base . '/cadastro/checkin/' . $inscricao->id) !!}
         </div>
     </div>
     @endforeach

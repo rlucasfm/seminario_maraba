@@ -21,7 +21,8 @@ class AdministrativoController extends Controller
         $inscricoes = Inscricao::where('igreja', $igreja)->get();
 
         return view('layouts.cracha_multiple', [
-            'inscricoes' => $inscricoes
+            'inscricoes' => $inscricoes,
+            'url_base' => env('APP_URL', 'http://localhost')
         ]);
     }
 }

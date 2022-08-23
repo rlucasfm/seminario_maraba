@@ -83,8 +83,9 @@ class CadastroController extends Controller
     }
 
     public function gerarCracha($id) {
+        $base_url = env('APP_URL', 'http://localhost');
         $inscricao = Inscricao::find($id);
-        $inscricao['qrcode'] = base64_encode(QrCode::format('svg')->size(200)->errorCorrection('H')->generate('http://127.0.0.1:8000/cadastro/checkin/' . $inscricao->id));
+        $inscricao['qrcode'] = base64_encode(QrCode::format('svg')->size(200)->errorCorrection('H')->generate($base_url . '/cadastro/checkin/' . $inscricao->id));
 
         return PDF::loadView('layouts.cracha_pdf', compact('inscricao'))->setPaper('a7', 'portrait')
         // Se quiser que fique no formato a4 retrato: ->setPaper('a4', 'landscape')
