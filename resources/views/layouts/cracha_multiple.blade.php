@@ -22,6 +22,13 @@
     <title>Crachás</title>
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <style type="text/css" media="print">
+        @page
+        {
+            size: auto;   /* auto is the initial value */
+            margin: 0mm;  /* this affects the margin in the printer settings */
+        }
+    </style>
 </head>
 <body>
     <div class="columns is-multiline">
