@@ -26,7 +26,9 @@
         @page
         {
             size: A4;   /* auto is the initial value */
-            margin: 0mm;  /* this affects the margin in the printer settings */
+            margin: 13mm;  /* this affects the margin in the printer settings */
+            /* margin-left: 13px;
+            margin-right: 13px; */
         }
     </style>
     <style>
@@ -34,7 +36,7 @@
             border-color: black;
             border-width: 1px;
             border-style: solid;
-            height: 101.5mm;
+            height: 90.333mm;
         }
     </style>
 </head>
