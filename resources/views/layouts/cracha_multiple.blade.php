@@ -36,12 +36,12 @@
             border-color: black;
             border-width: 1px;
             border-style: solid;
-            height: 101.3mm;
+            height: 101mm;
         }
     </style>
 </head>
 <body>
-    <div class="columns is-multiline" style="margin-left: 13px; margin-right: 13px;">
+    <div class="columns is-multiline" style="margin-left: 13px; margin-right: 13px; margin-top: 13px;">
     @foreach ($inscricoes as $inscricao)
     <div class="column is-one-third column-print">
         <img src="{{URL::asset('img/logo_icm.svg')}}" width="100%" style="margin:auto;">
