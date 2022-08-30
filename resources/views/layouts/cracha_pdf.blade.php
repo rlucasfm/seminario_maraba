@@ -1,4 +1,4 @@
-<div>
+<div style="border-color: black; border-width: 1px; border-style: solid">
     <img src="img/logo_icm.svg" width="100%" style="margin:auto;">
     <div style="text-align: center">
         <h5>Região Sul do Pará</h5>

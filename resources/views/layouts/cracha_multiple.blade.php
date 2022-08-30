@@ -26,7 +26,7 @@
 <body>
     <div class="columns is-multiline">
     @foreach ($inscricoes as $inscricao)
-    <div class="column is-one-third" style="border-color: black; border-width: 5px">
+    <div class="column is-one-third" style="border-color: black; border-width: 1px; border-style: solid">
         <img src="{{URL::asset('img/logo_icm.svg')}}" width="100%" style="margin:auto;">
         <div style="text-align: center">
             <h5>Região Sul do Pará</h5>
