@@ -46,8 +46,7 @@
     <div class="column is-one-third column-print">
         <img src="{{URL::asset('img/logo_icm.svg')}}" width="100%" style="margin:auto;">
         <div style="text-align: center">
-            <h5>Região Sul do Pará</h5>
-            <hr>
+            <h5 class="mb-1">Região Sul do Pará</h5>
             <p><strong>{{ $inscricao->nome }}</strong></p>
             <p class="mb-4"><strong>Igreja:</strong> {{ $inscricao->igreja }}</p>
             {!! QrCode::format('svg')->size(100)->generate($url_base . '/cadastro/checkin/' . $inscricao->id) !!}
