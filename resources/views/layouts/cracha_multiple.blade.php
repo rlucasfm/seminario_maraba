@@ -34,7 +34,7 @@
             border-color: black;
             border-width: 1px;
             border-style: solid;
-            height: 100mm;
+            height: 102mm;
         }
     </style>
 </head>
