@@ -26,7 +26,7 @@
         @page
         {
             size: A4;   /* auto is the initial value */
-            margin: 13mm;  /* this affects the margin in the printer settings */
+            margin: 0mm;  /* this affects the margin in the printer settings */
             /* margin-left: 13px;
             margin-right: 13px; */
         }
@@ -36,12 +36,12 @@
             border-color: black;
             border-width: 1px;
             border-style: solid;
-            height: 90.333mm;
+            height: 101.3mm;
         }
     </style>
 </head>
 <body>
-    <div class="columns is-multiline">
+    <div class="columns is-multiline" style="margin-left: 13px; margin-right: 13px;">
     @foreach ($inscricoes as $inscricao)
     <div class="column is-one-third column-print">
         <img src="{{URL::asset('img/logo_icm.svg')}}" width="100%" style="margin:auto;">
