@@ -9,8 +9,10 @@ services:
         - MYSQL_DATABASE=seminario_maraba
       ports:
         - 3306:3306
+      command: --init-file /data/application/init.sql
       volumes:
         - ./data/db:/var/lib/mysql
+        - ./init.sql:/data/application/init.sql
 
     phpmyadmin:
       image: phpmyadmin/phpmyadmin:latest
